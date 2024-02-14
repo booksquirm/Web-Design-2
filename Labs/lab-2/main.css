@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito+Sans:opsz,wght@6..12,300&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #e7e1e1;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+  color: #743d2a;
+  font-family: 'Abril Fatface', serif;
+  text-align: center;
+}
+
+h2 {
+  color: #8f6a50;
+  text-align: center;
+}
+
+img {
+  height: auto;
+  width: 100%;
+}
+
+.capybara-container {
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.capybara-container p {
+  padding: 4px;
+}
+
+.capybara-image {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    transform: translateY(100px) rotateX(90deg);
+    animation: slideIn 2s ease-in-out forwards;
+}
+
+.capybara-image img {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+a {
+  color: #ffffff;
+  background-color: #8f6a50;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+a:hover {
+  animation: pulse 0.7s ease-in-out infinite alternate;
+  color: #ecd1ccf2;
+}
+
+footer {
+  background-color: #d0c5c5;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  padding: 4px;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(100px) rotateX(90deg);
+  }
+  to {
+      transform: translateY(0) rotateX(0deg);
+  }
+}
