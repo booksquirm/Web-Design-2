@@ -1,0 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
+@import url("https://unpkg.com/open-props/masks.edges.min.css");
+@import url("https://unpkg.com/open-props/masks.corner-cuts.min.css");
+@import url("https://unpkg.com/open-props/gradients.min.css");
+@import url("https://unpkg.com/open-props/animations.min.css");
+@import url("https://unpkg.com/open-props/easings.min.css");
+
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 25%;
+}
+
+.card-container {
+  container: card / inline-size;
+  overflow: hidden;
+  resize: horizontal;
+  width: 600px;
+  min-width: 300px;
+  max-width: 900px;
+  height: 500px;
+  filter: drop-shadow(0 15px 50px #600b);
+}
+
+.card {
+  --size-heart-color: mediumvioletred;
+  --bg: lightpink;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+}
+
+.heart {
+  container: heart / inline-size;
+}
+
+.heart span {
+  display: block;
+  text-align: center;
+}
+
+.size-area {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.size-line {
+  height: 2px;
+  background-color: var(--size-heart-color);
+}
+
+.size-indicator {
+  position: relative;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 45px;
+}
+
+.size-indicator:before,
+.size-indicator:after {
+  position: absolute;
+  content: "";
+  left: 30px;
+  top: 0;
+  width: 30px;
+  height: 50px;
+  background: var(--size-heart-color);
+  border-radius: 30px 30px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.size-indicator:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+@container card (max-width: 399px) {
+  /*  Color fonts  */
+  .heart span {
+    font-family: "Nabla";
+    font-palette: --myPalette;
+    font-size: 3.6rem;
+    line-height: 1;
+  }
+
+  @font-palette-values --myPalette {
+    font-family: "Nabla";
+    base-palette: 6;
+  }
+
+  .card {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr auto;
+    margin-bottom: 2em;
+    background: linear-gradient(#ffb8ef, #ebcdff);
+  }
+
+  .size-area {
+    margin-bottom: 1em;
+  }
+  .size-indicator {
+    transition: all 0.2s ease-in-out;
+    scale: 2;
+    transform-origin: 50% 100%;
+  }
+  .layout {
+    grid-row: 1/2;
+  }
+}
+
+@container card (min-width: 400px) and (max-width: 499px) {
+  .card {
+    --size-heart-color: #fff;
+    --bg: #333;
+
+    --color-1: rgb(205 255 155 / 1);
+    --color-2: rgb(0 0 0 / 0);
+    --size: 7.5rem;
+
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1em;
+  }
+
+  .card .size-val {
+    /* @TODO: Put in Custom Prop instead of doing the Specificity thing */
+    color: #333;
+  }
+
+  .layout {
+    flex: 1;
+
+    display: grid;
+    place-content: center;
+
+    background: radial-gradient(
+      var(--size) var(--size) at var(--mouse-x) var(--mouse-y),
+      var(--color-1) 0%,
+      var(--color-2) 99%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .heart {
+    pointer-events: none;
+    container-type: normal;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-family: "Exo", sans-serif;
+    text-transform: uppercase;
+    color: transparent;
+    user-select: none;
+  }
+}
+
+@container card (min-width: 500px) and (max-width: 599px) {
+  /* argyle! */
+  .card {
+    --size-heart-color: white;
+    --bg: white;
+
+    background: var(--gradient-18);
+    color: white;
+    text-shadow: 0 1px 4px hsl(0 0% 0% / 20%);
+    mask: var(--mask-corner-cut-circles-2);
+    -webkit-mask: var(--mask-corner-cut-circles-2);
+  }
+
+  .heart {
+    font-size: 5cqi;
+  }
+
+  .size-val {
+    color: red;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .size-indicator {
+      animation: var(--animation-float);
+    }
+  }
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+@property --scaler {
+  syntax: "<number>";
+  initial-value: 0.1;
+  inherits: true;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes drop-in {
+  from {
+    translate: 0% -100%;
+  }
+  to {
+    translate: 0% calc(var(--i) * 25%);
+  }
+}
+@container card (min-width: 600px) and (max-width: 699px) {
+  .card-container {
+  }
+
+  .card {
+    --size-heart-color: darkmagenta;
+    --bg: hotpink;
+    --bg: repeating-conic-gradient(
+      deeppink,
+      deeppink 10deg,
+      hotpink 10deg,
+      hotpink 20deg
+    );
+  }
+
+  .heart {
+    container-type: normal;
+  }
+
+  .line-1 {
+    --i: 1;
+  }
+  .line-2 {
+    --i: 2;
+  }
+  .line-3 {
+    --i: 3;
+  }
+  .line-4 {
+    --i: 4;
+  }
+
+  h1 {
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px rgb(0 0 0 / 0.4);
+    user-select: none;
+  }
+
+  h1 span {
+    --scaler: 0.1;
+    animation: fade-in 0s ease-in-out, drop-in 0s ease-in-out both;
+    animation-delay: calc(var(--i) * -0.2s);
+    font-size: 3rem;
+    rotate: calc(var(--i) * -10deg);
+    scale: calc(1 + (var(--i) * var(--scaler)));
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card {
+      animation: 30s rotate linear infinite;
+    }
+    h1 span {
+      animation-duration: 1s, 1s;
+      transition: scale 2s ease-in-out, opacity 2s ease-in-out;
+      transition-delay: calc((var(--i) - 1) * 0.1s), 0;
+    }
+    h1:hover span {
+      --scaler: 10;
+      opacity: 0;
+    }
+  }
+}
+
+@font-palette-values --nabla {
+  font-family: "Nabla";
+  base-palette: 1;
+  override-colors: 0 hsl(328deg 100% 50%);
+}
+
+@container card (min-width: 700px) and (max-width: 799px) {
+  /* argyle! */
+  .card {
+    --size-heart-color: deeppink;
+    --bg: magenta;
+
+    color: white;
+    background: #111;
+    mask: var(--mask-edge-scalloped);
+    -webkit-mask: var(--mask-edge-scalloped);
+  }
+
+  .bonus-thing {
+    display: none;
+  }
+
+  .heart > h1 {
+    font-size: 11cqi;
+    font-family: Nabla;
+    font-palette: --nabla;
+    line-height: 1.1;
+    margin-top: 1.5rem;
+  }
+
+  @media (dynamic-range: high) {
+    @supports (background: color(display-p3 1 0 1)) {
+      .card {
+        --size-heart-color: color(display-p3 1 0 1);
+      }
+    }
+  }
+}
+
+@container card (min-width: 800px) {
+  .card {
+    --size-heart-color: palevioletred;
+    --bg: #ffe4e5;
+  }
+
+  .bonus-thing {
+    display: block;
+    background: url(https://web-dev.imgix.net/image/HodOHWjMnbNw56hvNASHWSgZyAf2/iY4Hdqor5ZOi7pci7h9f.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -40%;
+    right: 5%;
+    width: 45cqi;
+    height: 70cqi;
+    animation: pop-in 0.25s ease-in forwards;
+  }
+
+  .heart span {
+    text-align: left;
+    font-size: min(11cqi, 5.5rem);
+    padding-left: 3rem;
+    color: #cf6387;
+    line-height: 1.1;
+    text-shadow: 4px 2px #ff9f9f, 8px 4px #ffe5a9, 12px 8px white;
+  }
+
+  @keyframes pop-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) rotate(-8deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(8deg);
+    }
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: url(https://images.unsplash.com/photo-1506668853927-740b51733a32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1738&q=80)
+      center no-repeat;
+    background-size: cover;
+  }
+
+  .card-container:after {
+    content: "Resize me";
+    display: block;
+    position: absolute;
+    bottom: 0.35rem;
+    right: 0.35rem;
+    background: white;
+    text-transform: uppercase;
+    padding: 0.25rem;
+    letter-spacing: 0.5px;
+    font-size: 80%;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: "Petit Formal Script";
+  }
+
+  .bonus-thing {
+    position: absolute;
+    display: none;
+  }
+
+  .size-val {
+    z-index: 1;
+    color: white;
+  }
+
+  button {
+    padding: 0.5rem;
+    background: white;
+    border: 1px solid black;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+}

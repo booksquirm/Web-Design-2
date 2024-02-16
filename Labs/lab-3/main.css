@@ -1,8 +1,13 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
+    cursor: url(media/donut.png), auto;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    font-family: 'Arial Rounded MT', sans-serif;
+    margin: 0;
   }
   
   header {
@@ -12,7 +17,24 @@ body {
     justify-content: space-between; 
     align-items: center;
   }
-  
+
+  .donut-image {
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    z-index: 10;
+  }
+
+  h1 {
+    font-family: "Chewy", system-ui;
+    font-size: xxx-large;
+  }
+
+  h2 {
+    font-family: "Chewy", system-ui;
+  }
+
   nav {
     margin-top: 15px;
   }
@@ -49,6 +71,7 @@ body {
     height:auto;
     width:100%;
  }
+
   .donut-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -63,27 +86,39 @@ body {
     flex-direction: column;
     align-items: center;
     position: relative;
+    padding: 5px;
   }
-  
+
   .donut-item {
     background-color: #fff5e0;
+    padding: 5px;
   }
 
   .donut-item-2 {
     background-color: #dcd1e4;
+    padding: 5px;
   }
 
   .donut-item-3 {
     background-color: #fbedd5;
+    padding: 5px;
   }
-  
+
+  @container (max-width: 500px) {
+    .donut-item p, 
+    .donut-item-3 p  {
+        font-size: 0.8em; 
+    }
+ }
+
   aside {
     background-color: #ffe0d0;
     grid-area: 2 / 3 / 3 / 4;
+    padding: 5px;
   }
-  
+
   .featured::before {
-    content: "Donut of the Week!";
+    content: "Donut of the Week";
     background-color: #f06060; 
     color: white;
     position: absolute;
@@ -91,6 +126,12 @@ body {
     top: -15px;
     left: 50%;
     transform: translateX(-50%); 
+  }
+
+  footer {
+    font-family: 'Arial Rounded MT', sans-serif;
+    font-size: small;
+    padding: 5px;
   }
   
   @media (max-width: 800px) {
