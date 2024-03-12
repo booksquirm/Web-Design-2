@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Yeseva+One&display=swap');
+
+
+body {
+    background-color: rgb(246, 243, 239);
+    font-family: "Dosis", sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+h1 {
+    color: #f58d58;
+    font-family: "Yeseva One", serif;
+    font-size: xxx-large;
+    text-align: center;
+}
+
+h2 {
+    color: #f55868;
+    font-size: xx-large;
+}
+
+h3 {
+    font-family: "Yeseva One", serif;
+}
+
+img {
+    width: 90%; 
+    height: auto;
+}
+
+.semi-circle {
+    float: left;
+    height: 300px;
+    width: 300px;
+    shape-outside: circle(50% at 0 50%);
+    shape-margin: 7px;
+    clip-path: circle(50% at 0 50%);
+    background: linear-gradient(to top right, #f58d58, #f4d2a3);
+}
+
+.masking {
+    width: 100vw;
+    height: 100vh;
+  
+    background-image: url(media/texture.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    mask-image: url(media/macrame-txt.svg);
+    mask-size: 100vmin;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .blend-modes {
+    padding-bottom: 100px;
+    position: relative;
+  }
+  
+  .blend-modes img {
+    width: 90%;
+    height: auto;
+    display: block;
+  }
+  
+  .blend-modes img:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    mix-blend-mode: multiply;
+  }
+
+  .filters img {
+    filter: sepia(20%) saturate(110%) brightness(110%) contrast(95%) hue-rotate(-20deg);
+  }  
+
+  footer {
+    color: #f55868;
+    font-size: small;
+    padding-top: 40px;
+}
+
