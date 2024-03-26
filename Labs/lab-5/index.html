@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5</title>
+    <link href="main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <h1>Happily Ever Afterimages</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="http://jnino.great-site.net/labs/lab-5/index.html">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Pricing</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Capturing your love story, one frame at a time.</h2> 
+        </section>
+    
+        <section> 
+            <h3>Image with object-fit: Cover</h3>
+            <img src="https://images.unsplash.com/photo-1624067078399-be29c52a2b12?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bistro lights at a wedding" class="sample-image-cover"> 
+        </section>
+    
+        <section>
+            <h3>Resolution Swapping</h3>
+            <picture>
+                <source media="(max-width: 379px)" srcset="images/image-small.jpg"> 
+                <source media="(max-width: 699px)" srcset="images/image-medium.jpg"> 
+                <img src="images/ image-large.jpg" alt="Bride and Groom on a beach."
+                class="res-swap-image"> 
+              </picture>
+        </section>
+    
+        <section>
+            <h3>Art Direction</h3> 
+            <picture>
+                <source media="(max-width: 768px)" srcset="https://images.unsplash.com/photo-1594082661233-8babcdb02a89?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sparklers">
+                <img src="https://images.pexels.com/photos/1646730/pexels-photo-1646730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Couple send off" class="art-direction-image">
+            </picture>
+        </section>
+    
+        <section>
+            <h3>Scalable SVG</h3>
+            <img src="images/Bride_and_groom_6878.svg" alt="Bride and Groom" class="scalable-svg"> 
+        </section>
+    </main>
+
+    <footer>
+        This fictitious website was created as an academic exercise for the Diablo Valley College course, ARTDM-173:Web Design II. In no way should this content be considered or used as a source of factual public information.
+    </footer>
+
+<script src="main.js"></script>
+
+</body>
+</html>

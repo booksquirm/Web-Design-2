@@ -1,0 +1,138 @@
+/* Basic Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+
+body {
+    font-family: "Wix Madefor Text", sans-serif;
+    margin: 0;
+}
+
+footer {
+    background-image: url(https://images.pexels.com/photos/1122639/pexels-photo-1122639.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    color: #ffffff;
+    padding:10px;
+    margin: 0;
+}
+
+/* Header/Nav */
+
+header {
+    background-color: #f0f0f0;
+    padding: 15px 0;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Imbue", serif;
+    font-size: xxx-large;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.nav-links li {
+    margin: 0 10px; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cc5c5c;
+}
+
+.nav-links a:hover {
+    color: #dfa7a7;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333; 
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) { 
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%; 
+        width: 100%;
+        height: 100vh;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+h3 {
+    padding: 5px;
+}
+
+/* Hero with Responsive Background Image */
+
+.hero {
+    background-image: url("https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center; 
+    background-size: cover;
+    color: #ffffff;
+    height: 500px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-position: top right;
+    }
+}
+
+/* Image with object-fit: cover */
+.sample-image-cover {
+    width: 100%; 
+    height: 300px; 
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Srcset and sizes for resolution swapping */
+.res-swap-image {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Picture element for art direction */
+.art-direction-image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Scalable SVG */
+.scalable-svg {
+    width: 50%;
+    height: auto;
+} 
